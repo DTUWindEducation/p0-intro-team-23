@@ -23,7 +23,6 @@ A branch is a separate version of your code used for features or bug fixes witho
 
 ### 6. How could you visualize a branch with 3 commits, and then another branch that breaks off after the second commit and has a single commit?
 
-
 ### 7. Give an example of a set of git commands that would result in a merge conflict.
 
 ### 8. Is Git suitable for LaTeX documents?
