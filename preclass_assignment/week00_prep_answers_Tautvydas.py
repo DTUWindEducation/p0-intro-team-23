@@ -1,11 +1,11 @@
-'''
+
 #1 Simple function
 def greet(name):
     return print(f'Hello, {name}!')
 
 greet('world')
-'''
-'''
+
+
 #2 If/else statements
 def goldilocks(bed_length):
     if bed_length < 140:
@@ -41,7 +41,7 @@ def fibonacci_stop(max_value):
     return print(Fibonacci_numbers)
 
 fibonacci_stop(30)
-'''
+
 
 #5 Logical operators
 def clean_pitch(x, status):
