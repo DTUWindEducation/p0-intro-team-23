@@ -33,28 +33,30 @@ def test_goldilocks(capsys):
     assert captured.out == "Just right. :)\n"  # Ensure output matches
 
 
-def test_square_list():
+def test_square_list(capsys):
     """Check square_list returns expected output"""
     # given
     inp = [1, 2, 3]  # test input to function
     exp_out = [1, 4, 9]  # expected output
     # when
-    out = fxn.square_list(inp)  # actual output
+    fxn.square_list(inp)  # actual output is printed, so capture it
+    captured = capsys.readouterr()
     # then
-    assert exp_out == out  # throw error if actual and expected output don't match
+    assert captured.out == " ".join(map(str, exp_out)) + "\n"  # check printed output matches expected
 
 
-def test_fibonacci_stop():
+def test_fibonacci_stop(capsys):
     """Check fibonacci functions works as expected."""
     inp = 30  # test input to function
     exp_out = [1, 1, 2, 3, 5, 8, 13, 21]  # expected output
     # when
-    out = fxn.fibonacci_stop(inp)  # actual output
+    fxn.fibonacci_stop(inp)  # actual output is printed, so capture it
+    captured = capsys.readouterr()
     # then
-    assert out == exp_out
+    assert captured.out == " ".join(map(str, exp_out)) + "\n"  # check printed output matches expected
 
 
-def test_clean_pitch():
+def test_clean_pitch(capsys):
     """Check clean_pitch works as expected."""
     # Test case: x and status as given in the example
     x = [-1, 2, 6, 95]  # "raw" pitch angle at four time steps
@@ -64,16 +66,16 @@ def test_clean_pitch():
     expected_output = [-999, 2, 6, 95]
     
     # Run the function and check the result
-    result = fxn.clean_pitch(x, status)  # Call clean_pitch from fxn module
+    fxn.clean_pitch(x, status)  # the function prints output, so capture it
+    captured = capsys.readouterr()
     
     # Assert the result matches the expected output
-    assert result == expected_output, f"Expected {expected_output}, but got {result}"
-
+    assert captured.out == " ".join(map(str, expected_output)) + "\n", f"Expected {expected_output}, but got {captured.out.strip()}"
 
 if __name__ == '__main__':
     # Run all test functions
     test_greet(capsys)
     test_goldilocks(capsys)
-    test_square_list()
-    test_fibonacci_stop()
-    test_clean_pitch()
+    test_square_list(capsys)
+    test_fibonacci_stop(capsys)
+    test_clean_pitch(capsys)
