@@ -1,7 +1,4 @@
-"""Test your functions from Week 2 assignment.
-"""
 import Preclass_assignments.functions as fxn
-import pytest  # Import pytest for capturing output and running the tests
 
 def test_greet(capsys):
     """Check that the greet function prints as expected"""
@@ -72,10 +69,3 @@ def test_clean_pitch(capsys):
     # Assert the result matches the expected output
     assert captured.out == " ".join(map(str, expected_output)) + "\n", f"Expected {expected_output}, but got {captured.out.strip()}"
 
-if __name__ == '__main__':
-    # Run all test functions
-    test_greet(capsys)
-    test_goldilocks(capsys)
-    test_square_list(capsys)
-    test_fibonacci_stop(capsys)
-    test_clean_pitch(capsys)
